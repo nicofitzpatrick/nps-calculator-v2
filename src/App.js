@@ -1,23 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+// Styles
+import "./App.css";
+
+//Import Components
+import { Amount } from "./components/Amount";
+import { ClientList } from "./components/ClientList";
+import { Result } from "./components/Result";
+import { CalculateBtn } from "./components/buttons/CalculateBtn";
+import { ResetBtn } from "./components/buttons/ResetBtn";
+import { AddClientBtn } from "./components/buttons/AddClientBtn";
+import { RemoveClientBtn } from "./components/buttons/RemoveClientBtn";
 
 function App() {
+  const [clientObject, setClientObject] = useState([]);
+  const [amount, setAmount] = useState("");
+  const [npsResult, setNpsResult] = useState("");
+  const [resultStatus, setResultStatus] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>NPS Calculator</h1>
+      <Amount amount={amount} setAmount={setAmount} />
+      <ClientList
+        clientObject={clientObject}
+        setClientObject={setClientObject}
+      />
+
+      {resultStatus && (
+        <Result
+          npsResult={npsResult}
+          clientObject={clientObject}
+          amount={amount}
+        />
+      )}
+      <div className="btns">
+        <CalculateBtn
+          amount={amount}
+          clientObject={clientObject}
+          setNpsResult={setNpsResult}
+          setResultStatus={setResultStatus}
+        />
+        <ResetBtn
+          setAmount={setAmount}
+          setClientObject={setClientObject}
+          setNpsResult={setNpsResult}
+          setResultStatus={setResultStatus}
+        />
+        <AddClientBtn
+          clientObject={clientObject}
+          setClientObject={setClientObject}
+        />
+        <RemoveClientBtn
+          clientObject={clientObject}
+          setClientObject={setClientObject}
+          setResultStatus={setResultStatus}
+        />
+      </div>
     </div>
   );
 }
