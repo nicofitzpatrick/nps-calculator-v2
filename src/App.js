@@ -13,6 +13,7 @@ import { AddClientBtn } from "./components/buttons/AddClientBtn";
 import { RemoveClientBtn } from "./components/buttons/RemoveClientBtn";
 
 function App() {
+  //state
   const [clientObject, setClientObject] = useState([]);
   const [amount, setAmount] = useState("");
   const [npsResult, setNpsResult] = useState("");
