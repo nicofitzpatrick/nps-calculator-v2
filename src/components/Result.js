@@ -26,7 +26,7 @@ export function Result({ npsResult, clientObject, amount }) {
               i.syncRate * 100
             }%)`;
           } else {
-            return ` + (${rounded(amount * i.pubShare)} less ${
+            return ` + ($${rounded(amount * i.pubShare)} less ${
               i.syncRate * 100
             }%)`;
           }
