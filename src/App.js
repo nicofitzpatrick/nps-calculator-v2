@@ -10,7 +10,6 @@ import { Result } from "./components/Result";
 import { CalculateBtn } from "./components/buttons/CalculateBtn";
 import { ResetBtn } from "./components/buttons/ResetBtn";
 import { AddClientBtn } from "./components/buttons/AddClientBtn";
-import { RemoveClientBtn } from "./components/buttons/RemoveClientBtn";
 
 function App() {
   //state
@@ -26,6 +25,7 @@ function App() {
       <ClientList
         clientObject={clientObject}
         setClientObject={setClientObject}
+        setResultStatus={setResultStatus}
       />
 
       {resultStatus && (
@@ -51,11 +51,6 @@ function App() {
         <AddClientBtn
           clientObject={clientObject}
           setClientObject={setClientObject}
-        />
-        <RemoveClientBtn
-          clientObject={clientObject}
-          setClientObject={setClientObject}
-          setResultStatus={setResultStatus}
         />
       </div>
     </div>

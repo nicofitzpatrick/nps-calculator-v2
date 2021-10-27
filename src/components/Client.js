@@ -1,6 +1,7 @@
 import React from "react";
+import { RemoveClientBtn } from "./buttons/RemoveClientBtn";
 
-export function Client({ clientObject, setClientObject, id }) {
+export function Client({ clientObject, setClientObject, id, setResultStatus }) {
   const nameHandler = (e) => {
     setClientObject(
       (prev) => [...prev],
@@ -27,22 +28,17 @@ export function Client({ clientObject, setClientObject, id }) {
     );
   };
 
-  const handleX = (e) => {
-    e.preventDefault();
-    const componentId = parseFloat(e.target.id);
-    let newA = clientObject.filter((client) => client.id !== componentId);
-    setClientObject(newA);
-    // setResultStatus(false);
-  };
-
   return (
     <div className="border marginBotton comp">
       <div className="flexGroup">
         <p> Client Name: </p>{" "}
         <input onChange={nameHandler} type="text" id={id} />
-        <h2 onClick={handleX} className="leftMargin" id={id}>
-          X
-        </h2>
+        <RemoveClientBtn
+          clientObject={clientObject}
+          setClientObject={setClientObject}
+          setResultStatus={setResultStatus}
+          id={id}
+        />
       </div>{" "}
       <div className="flexGroup">
         <div className="flexGroup">

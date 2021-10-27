@@ -4,19 +4,21 @@ export function RemoveClientBtn({
   clientObject,
   setClientObject,
   setResultStatus,
+  id,
 }) {
   const onClickHandler = (e) => {
     e.preventDefault();
-    let newA = clientObject.filter(
-      (client) => clientObject.indexOf(client) < clientObject.length - 1
-    );
+    const componentId = parseFloat(e.target.id);
+    let newA = clientObject.filter((client) => client.id !== componentId);
     setClientObject(newA);
     setResultStatus(false);
   };
 
   return (
     <div>
-      <button onClick={onClickHandler}> Remove Client </button>{" "}
+      <span onClick={onClickHandler} id={id} className="close">
+        &times;
+      </span>
     </div>
   );
 }

@@ -35,3 +35,13 @@ ul {
 .nonActive {
   display: none;
 }
+
+.close {
+  position: relative;
+  left: 40px;
+  bottom: 15px;
+  color: black;
+  font-size: 30px;
+  font-weight: lighter;
+  cursor: pointer;
+}

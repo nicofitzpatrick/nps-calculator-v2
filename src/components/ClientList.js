@@ -1,7 +1,7 @@
 import React from "react";
 import { Client } from "./Client";
 
-export function ClientList({ clientObject, setClientObject }) {
+export function ClientList({ clientObject, setClientObject, setResultStatus }) {
   return (
     <div>
       <ul>
@@ -11,6 +11,7 @@ export function ClientList({ clientObject, setClientObject }) {
             id={i.id}
             clientObject={clientObject}
             setClientObject={setClientObject}
+            setResultStatus={setResultStatus}
           />
         ))}
       </ul>
