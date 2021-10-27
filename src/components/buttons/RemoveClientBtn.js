@@ -8,7 +8,7 @@ export function RemoveClientBtn({
   const onClickHandler = (e) => {
     e.preventDefault();
     let newA = clientObject.filter(
-      (cli) => clientObject.indexOf(cli) < clientObject.length - 1
+      (client) => clientObject.indexOf(client) < clientObject.length - 1
     );
     setClientObject(newA);
     setResultStatus(false);

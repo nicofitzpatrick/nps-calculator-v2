@@ -27,8 +27,12 @@ export function Client({ clientObject, setClientObject, id }) {
     );
   };
 
-  const handleX = () => {
-    console.log("working");
+  const handleX = (e) => {
+    e.preventDefault();
+    const componentId = parseFloat(e.target.id);
+    let newA = clientObject.filter((client) => client.id !== componentId);
+    setClientObject(newA);
+    // setResultStatus(false);
   };
 
   return (
@@ -36,8 +40,7 @@ export function Client({ clientObject, setClientObject, id }) {
       <div className="flexGroup">
         <p> Client Name: </p>{" "}
         <input onChange={nameHandler} type="text" id={id} />
-        (// remove client)
-        <h2 onClick={handleX} className="leftMargin">
+        <h2 onClick={handleX} className="leftMargin" id={id}>
           X
         </h2>
       </div>{" "}
