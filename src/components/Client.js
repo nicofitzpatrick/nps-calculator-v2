@@ -36,6 +36,7 @@ export function Client({ clientObject, setClientObject, id }) {
       <div className="flexGroup">
         <p> Client Name: </p>{" "}
         <input onChange={nameHandler} type="text" id={id} />
+        (// remove client)
         <h2 onClick={handleX} className="leftMargin">
           X
         </h2>
