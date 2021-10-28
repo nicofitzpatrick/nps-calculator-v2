@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Styles
 import "./App.css";
@@ -17,6 +17,19 @@ function App() {
   const [amount, setAmount] = useState("");
   const [npsResult, setNpsResult] = useState("");
   const [resultStatus, setResultStatus] = useState(false);
+
+  //effect
+  useEffect(() => {
+    if (resultStatus) {
+      const numAmount = parseFloat(amount);
+      const npsArray = clientObject.map(
+        (i) => numAmount * i.pubShare * i.syncRate
+      );
+      const reducer = (accumulator, curr) => accumulator + curr;
+      const nps = numAmount - npsArray.reduce(reducer);
+      setNpsResult(nps);
+    }
+  }, [amount, clientObject, resultStatus]);
 
   return (
     <div>
