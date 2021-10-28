@@ -17,19 +17,24 @@ function App() {
   const [amount, setAmount] = useState("");
   const [npsResult, setNpsResult] = useState("");
   const [resultStatus, setResultStatus] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   //effect
   useEffect(() => {
     if (resultStatus) {
-      const numAmount = parseFloat(amount);
-      const npsArray = clientObject.map(
-        (i) => numAmount * i.pubShare * i.syncRate
-      );
-      const reducer = (accumulator, curr) => accumulator + curr;
-      const nps = numAmount - npsArray.reduce(reducer);
-      setNpsResult(nps);
+      if (amount === "") {
+        setNpsResult(0);
+      } else {
+        const numAmount = parseFloat(amount);
+        const npsArray = clientObject.map(
+          (i) => numAmount * i.pubShare * i.syncRate
+        );
+        const reducer = (accumulator, curr) => accumulator + curr;
+        const nps = numAmount - npsArray.reduce(reducer);
+        setNpsResult(nps);
+      }
     }
-  }, [amount, clientObject, resultStatus]);
+  }, [amount, clientObject, resultStatus, npsResult]);
 
   return (
     <div>
@@ -54,6 +59,7 @@ function App() {
           clientObject={clientObject}
           setNpsResult={setNpsResult}
           setResultStatus={setResultStatus}
+          setErrorMessage={setErrorMessage}
         />
         <ResetBtn
           setAmount={setAmount}
@@ -66,6 +72,7 @@ function App() {
           setClientObject={setClientObject}
         />
       </div>
+      <p>{errorMessage}</p>
     </div>
   );
 }
