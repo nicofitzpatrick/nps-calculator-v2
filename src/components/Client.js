@@ -1,7 +1,7 @@
 import React from "react";
 import { RemoveClientBtn } from "./buttons/RemoveClientBtn";
 
-export function Client({ clientObject, setClientObject, id, setResultStatus }) {
+export function Client({ clientObject, setClientObject, id }) {
   const nameHandler = (e) => {
     setClientObject(
       (prev) => [...prev],
@@ -33,12 +33,15 @@ export function Client({ clientObject, setClientObject, id, setResultStatus }) {
       <div className="flexGroup">
         <p> Client Name: </p>{" "}
         <input onChange={nameHandler} type="text" id={id} />
-        <RemoveClientBtn
-          clientObject={clientObject}
-          setClientObject={setClientObject}
-          setResultStatus={setResultStatus}
-          id={id}
-        />
+        {clientObject.length === 1 ? (
+          ""
+        ) : (
+          <RemoveClientBtn
+            clientObject={clientObject}
+            setClientObject={setClientObject}
+            id={id}
+          />
+        )}
       </div>{" "}
       <div className="flexGroup">
         <div className="flexGroup">

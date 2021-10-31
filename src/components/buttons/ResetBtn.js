@@ -4,14 +4,14 @@ export function ResetBtn({
   setAmount,
   setClientObject,
   setNpsResult,
-  setResultStatus,
   setErrorMessage,
 }) {
   const handleReset = () => {
     setAmount("");
-    setClientObject([]);
+    setClientObject([
+      { name: "", pubShare: 0, syncRate: 0, id: Math.random() * 1000 },
+    ]);
     setNpsResult("");
-    setResultStatus(false);
     setErrorMessage("");
   };
   return (
