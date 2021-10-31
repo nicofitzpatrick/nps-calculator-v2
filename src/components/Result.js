@@ -1,11 +1,6 @@
 import React from "react";
 
-export function Result({ npsResult, clientObject, amount }) {
-  const rounded = (num) => {
-    const numConv = parseFloat(num);
-    return Math.round((numConv + Number.EPSILON) * 100) / 100;
-  };
-
+export function Result({ npsResult, clientObject, amount, rounded }) {
   return (
     <div className="border marginBotton comp">
       <p>
@@ -32,7 +27,8 @@ export function Result({ npsResult, clientObject, amount }) {
           }
         })}{" "}
       </p>
-      <p>NPS = {npsResult ? `$${rounded(npsResult)}` : ""}</p>
+      {/* <p>NPS = {npsResult ? `$${rounded(npsResult)}` : ""}</p> */}
+      <p>NPS = {npsResult === "" ? npsResult : `$${npsResult}`}</p>
     </div>
   );
 }

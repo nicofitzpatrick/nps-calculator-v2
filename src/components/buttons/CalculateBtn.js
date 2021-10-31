@@ -6,6 +6,7 @@ export function CalculateBtn({
   setNpsResult,
   setResultStatus,
   setErrorMessage,
+  rounded,
 }) {
   const handleCalc = (e) => {
     if (amount === "") {
@@ -25,12 +26,11 @@ export function CalculateBtn({
           (i) => numAmount * i.pubShare * i.syncRate
         );
         const nps = numAmount - npsArray.reduce(reducer);
+        const npsRounded = rounded(nps);
         setResultStatus(true);
         setErrorMessage("");
-        setNpsResult(nps);
+        setNpsResult(npsRounded);
       }
-
-      console.log(shareTotal);
     }
   };
 

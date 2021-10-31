@@ -19,6 +19,11 @@ function App() {
   const [resultStatus, setResultStatus] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const rounded = (num) => {
+    const numConv = parseFloat(num);
+    return Math.round((numConv + Number.EPSILON) * 100) / 100;
+  };
+
   //effect
   useEffect(() => {
     if (resultStatus) {
@@ -38,8 +43,9 @@ function App() {
             (i) => numAmount * i.pubShare * i.syncRate
           );
           const nps = numAmount - npsArray.reduce(reducer);
+          const npsRounded = rounded(nps);
           setErrorMessage("");
-          setNpsResult(nps);
+          setNpsResult(npsRounded);
         }
       }
     }
@@ -60,6 +66,7 @@ function App() {
           npsResult={npsResult}
           clientObject={clientObject}
           amount={amount}
+          rounded={rounded}
         />
       )}
       <div className="btns">
@@ -69,6 +76,7 @@ function App() {
           setNpsResult={setNpsResult}
           setResultStatus={setResultStatus}
           setErrorMessage={setErrorMessage}
+          rounded={rounded}
         />
         <ResetBtn
           setAmount={setAmount}
