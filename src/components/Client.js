@@ -46,7 +46,7 @@ export function Client({ clientObject, setClientObject, id, setResultStatus }) {
           <input
             onChange={pubShareHandler}
             className="smallerInputBox"
-            type="text"
+            type="number"
           />
           <p> % </p>{" "}
         </div>{" "}
@@ -55,7 +55,7 @@ export function Client({ clientObject, setClientObject, id, setResultStatus }) {
           <input
             onChange={syncRateHandler}
             className="smallerInputBox"
-            type="text"
+            type="number"
           />
           <p> % </p>{" "}
         </div>{" "}

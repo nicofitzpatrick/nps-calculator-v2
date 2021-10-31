@@ -5,7 +5,7 @@ export function Amount({ amount, setAmount }) {
     try {
       let amountNum = e.target.value.match(/[0-9]|,|\./g).join("");
       setAmount(amountNum);
-    } catch (e) {
+    } catch (error) {
       setAmount("");
     }
   };

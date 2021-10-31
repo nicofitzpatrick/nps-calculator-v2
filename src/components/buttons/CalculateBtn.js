@@ -22,6 +22,10 @@ export function CalculateBtn({
       setResultStatus(true);
       setErrorMessage("");
       setNpsResult(nps);
+      // check shares equal 100%
+      const shareArr = clientObject.map((i) => i.pubShare);
+      const shareTotal = shareArr.reduce(reducer);
+      console.log(shareTotal);
     }
   };
 
