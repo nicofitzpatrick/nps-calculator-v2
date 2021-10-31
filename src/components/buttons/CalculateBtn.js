@@ -13,7 +13,8 @@ export function CalculateBtn({
     } else if (clientObject.length === 0) {
       setErrorMessage("add at least one client");
     } else {
-      const numAmount = parseFloat(amount);
+      const commaRemoval = amount.replaceAll(",", "");
+      const numAmount = parseFloat(commaRemoval);
       const npsArray = clientObject.map(
         (i) => numAmount * i.pubShare * i.syncRate
       );
