@@ -9,9 +9,23 @@ export function CalculateBtn({
   rounded,
 }) {
   const handleCalc = (e) => {
+    setErrorMessage("");
+    const [rateChecker] = clientObject.map((i) => {
+      if (i.syncRate > 1) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    console.log(rateChecker);
+
     if (amount === "") {
       setErrorMessage("enter amount");
     } else if (clientObject.length === 0) {
+      setErrorMessage("add atleast one client");
+    } else if (rateChecker) {
+      setErrorMessage("rates cannot exceed 100%");
     } else {
       const reducer = (accumulator, curr) => accumulator + curr;
       const shareArr = clientObject.map((i) => i.pubShare);

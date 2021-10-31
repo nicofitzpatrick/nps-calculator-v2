@@ -26,9 +26,22 @@ function App() {
 
   //effect
   useEffect(() => {
+    setErrorMessage("");
+    const [rateChecker] = clientObject.map((i) => {
+      if (i.syncRate > 1) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
     if (resultStatus) {
+      console.log("effect is triggered");
       if (amount === "") {
         setNpsResult(0);
+      } else if (rateChecker) {
+        setErrorMessage("rates cannot exceed 100%");
+        setNpsResult("");
       } else {
         const reducer = (accumulator, curr) => accumulator + curr;
         const shareArr = clientObject.map((i) => i.pubShare);
@@ -61,14 +74,6 @@ function App() {
         setResultStatus={setResultStatus}
       />
 
-      {resultStatus && (
-        <Result
-          npsResult={npsResult}
-          clientObject={clientObject}
-          amount={amount}
-          rounded={rounded}
-        />
-      )}
       <div className="btns">
         <CalculateBtn
           amount={amount}
@@ -88,8 +93,19 @@ function App() {
         <AddClientBtn
           clientObject={clientObject}
           setClientObject={setClientObject}
+          setErrorMessage={setErrorMessage}
         />
       </div>
+
+      {resultStatus && (
+        <Result
+          npsResult={npsResult}
+          clientObject={clientObject}
+          amount={amount}
+          rounded={rounded}
+        />
+      )}
+
       <p>{errorMessage}</p>
     </div>
   );
