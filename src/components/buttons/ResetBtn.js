@@ -5,12 +5,14 @@ export function ResetBtn({
   setClientObject,
   setNpsResult,
   setResultStatus,
+  setErrorMessage,
 }) {
   const handleReset = () => {
     setAmount("");
     setClientObject([]);
     setNpsResult("");
     setResultStatus(false);
+    setErrorMessage("");
   };
   return (
     <div>

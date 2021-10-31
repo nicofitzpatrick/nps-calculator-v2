@@ -25,13 +25,22 @@ function App() {
       if (amount === "") {
         setNpsResult(0);
       } else {
-        const numAmount = parseFloat(amount);
-        const npsArray = clientObject.map(
-          (i) => numAmount * i.pubShare * i.syncRate
-        );
         const reducer = (accumulator, curr) => accumulator + curr;
-        const nps = numAmount - npsArray.reduce(reducer);
-        setNpsResult(nps);
+        const shareArr = clientObject.map((i) => i.pubShare);
+        const shareTotal = shareArr.reduce(reducer);
+        if (shareTotal !== 1) {
+          setNpsResult("");
+        } else {
+          const commaRemoval = amount.replaceAll(",", "");
+          const numAmount = parseFloat(commaRemoval);
+
+          const npsArray = clientObject.map(
+            (i) => numAmount * i.pubShare * i.syncRate
+          );
+          const nps = numAmount - npsArray.reduce(reducer);
+          setErrorMessage("");
+          setNpsResult(nps);
+        }
       }
     }
   }, [amount, clientObject, resultStatus, npsResult]);
@@ -66,6 +75,7 @@ function App() {
           setClientObject={setClientObject}
           setNpsResult={setNpsResult}
           setResultStatus={setResultStatus}
+          setErrorMessage={setErrorMessage}
         />
         <AddClientBtn
           clientObject={clientObject}

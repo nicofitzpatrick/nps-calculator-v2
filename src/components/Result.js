@@ -32,7 +32,7 @@ export function Result({ npsResult, clientObject, amount }) {
           }
         })}{" "}
       </p>
-      <p>NPS = ${rounded(npsResult)}</p>
+      <p>NPS = {npsResult ? `$${rounded(npsResult)}` : ""}</p>
     </div>
   );
 }
