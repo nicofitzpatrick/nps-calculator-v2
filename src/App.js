@@ -16,13 +16,19 @@ function App() {
     { name: "", pubShare: 0, syncRate: 0, id: Math.random() * 1000 },
   ]);
   const [amount, setAmount] = useState("");
-  const [amountRounded, setAmountRounded] = useState("");
   const [npsResult, setNpsResult] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  //function to convert stringed numbers to floats and round to 2dp
   const rounded = (num) => {
     const numConv = parseFloat(num);
     return Math.round((numConv + Number.EPSILON) * 100) / 100;
+  };
+
+  //function to remove commas from the amount state and convert to float
+  const convertAmount = (a) => {
+    const removeC = a.replaceAll(",", "");
+    return parseFloat(removeC);
   };
 
   //effect
@@ -30,19 +36,15 @@ function App() {
     const reducer = (accumulator, curr) => accumulator + curr;
     const shareArr = clientObject.map((i) => i.pubShare);
     const shareTotal = shareArr.reduce(reducer);
-    const commaRemoval = amount.replaceAll(",", "");
-    const numAmount = parseFloat(commaRemoval);
-    setAmountRounded(numAmount);
-    if (amount === "") {
-      setAmountRounded(0);
-      setNpsResult("");
-    } else if (shareTotal !== 1) {
+
+    if (amount === "" || shareTotal !== 1) {
       setNpsResult("");
     } else {
+      const convertedAmount = convertAmount(amount);
       const npsArray = clientObject.map(
-        (i) => numAmount * i.pubShare * i.syncRate
+        (i) => convertedAmount * i.pubShare * i.syncRate
       );
-      const nps = numAmount - npsArray.reduce(reducer);
+      const nps = convertedAmount - npsArray.reduce(reducer);
       const npsRounded = rounded(nps);
       setErrorMessage("");
       setNpsResult(npsRounded);
@@ -75,8 +77,9 @@ function App() {
       <Result
         npsResult={npsResult}
         clientObject={clientObject}
-        amountRounded={amountRounded}
+        amount={amount}
         rounded={rounded}
+        convertAmount={convertAmount}
       />
 
       <p>{errorMessage}</p>

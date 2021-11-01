@@ -1,6 +1,14 @@
 import React from "react";
 
-export function Result({ npsResult, clientObject, amountRounded, rounded }) {
+export function Result({
+  npsResult,
+  clientObject,
+  amount,
+  rounded,
+  convertAmount,
+}) {
+  const convertedAmount = amount === "" ? 0 : convertAmount(amount);
+
   return (
     <div className="border marginBotton comp">
       <p>
@@ -17,13 +25,13 @@ export function Result({ npsResult, clientObject, amountRounded, rounded }) {
         Rate:{" "}
         {clientObject.map((i) => {
           if (clientObject.indexOf(i) === 0) {
-            return `($${rounded(amountRounded * i.pubShare)} less ${rounded(
+            return `($${rounded(convertedAmount * i.pubShare)} less ${rounded(
               i.syncRate * 100
             )}%)`;
           } else {
-            return ` + ($${rounded(amountRounded * i.pubShare)} less ${rounded(
-              i.syncRate * 100
-            )}%)`;
+            return ` + ($${rounded(
+              convertedAmount * i.pubShare
+            )} less ${rounded(i.syncRate * 100)}%)`;
           }
         })}{" "}
       </p>
