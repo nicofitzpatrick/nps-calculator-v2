@@ -30,15 +30,15 @@ function App() {
     const reducer = (accumulator, curr) => accumulator + curr;
     const shareArr = clientObject.map((i) => i.pubShare);
     const shareTotal = shareArr.reduce(reducer);
+    const commaRemoval = amount.replaceAll(",", "");
+    const numAmount = parseFloat(commaRemoval);
+    setAmountRounded(numAmount);
     if (amount === "") {
       setAmountRounded(0);
       setNpsResult("");
     } else if (shareTotal !== 1) {
       setNpsResult("");
     } else {
-      const commaRemoval = amount.replaceAll(",", "");
-      const numAmount = parseFloat(commaRemoval);
-      setAmountRounded(numAmount);
       const npsArray = clientObject.map(
         (i) => numAmount * i.pubShare * i.syncRate
       );

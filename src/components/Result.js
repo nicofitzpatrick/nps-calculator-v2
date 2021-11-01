@@ -17,13 +17,13 @@ export function Result({ npsResult, clientObject, amountRounded, rounded }) {
         Rate:{" "}
         {clientObject.map((i) => {
           if (clientObject.indexOf(i) === 0) {
-            return `($${rounded(amountRounded * i.pubShare)} less ${
+            return `($${rounded(amountRounded * i.pubShare)} less ${rounded(
               i.syncRate * 100
-            }%)`;
+            )}%)`;
           } else {
-            return ` + ($${rounded(amountRounded * i.pubShare)} less ${
+            return ` + ($${rounded(amountRounded * i.pubShare)} less ${rounded(
               i.syncRate * 100
-            }%)`;
+            )}%)`;
           }
         })}{" "}
       </p>
