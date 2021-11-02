@@ -48,9 +48,9 @@ function App() {
     } else {
       const convertedAmount = convertAmount(amount);
       const npsArray = clientObject.map(
-        (i) => convertedAmount * i.pubShare * i.syncRate
+        (i) => convertedAmount * i.pubShare * (1 - i.syncRate)
       );
-      const nps = convertedAmount - npsArray.reduce(reducer);
+      const nps = npsArray.reduce(reducer);
       const npsRounded = rounded(nps);
       setErrorMessage("");
       setNpsResult(npsRounded);
