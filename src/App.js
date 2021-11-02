@@ -37,7 +37,13 @@ function App() {
     const shareArr = clientObject.map((i) => i.pubShare);
     const shareTotal = shareArr.reduce(reducer);
 
-    if (amount === "" || shareTotal !== 1) {
+    // check rate is higher than 0% but does not exceed 100%
+    const rateCheck = clientObject.every(
+      (i) => i.syncRate !== 0 && i.syncRate > 0 && i.syncRate <= 1
+    );
+
+    // calcualte nps
+    if (amount === "" || shareTotal !== 1 || !rateCheck) {
       setNpsResult("");
     } else {
       const convertedAmount = convertAmount(amount);
