@@ -1,5 +1,7 @@
 import React from "react";
 
+//reverts all state back to the additional starting values
+
 export function ResetBtn({ setAmount, setClientObject, setNpsResult }) {
   const handleReset = () => {
     setAmount("");

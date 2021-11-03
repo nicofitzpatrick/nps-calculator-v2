@@ -1,6 +1,8 @@
 import React from "react";
 import { RemoveClientBtn } from "./buttons/RemoveClientBtn";
 
+//the client component can be rendered multiple times, and updates clientObject state for 'name,' 'pubShare,' and 'syncRate'
+
 export function Client({ clientObject, setClientObject, id }) {
   const nameHandler = (e) => {
     setClientObject(

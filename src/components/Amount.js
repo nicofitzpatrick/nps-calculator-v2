@@ -1,5 +1,7 @@
 import React from "react";
 
+//the amount component is responsible for aquiring the total licensed amount
+
 export function Amount({ amount, setAmount }) {
   const amountHandler = (e) => {
     try {

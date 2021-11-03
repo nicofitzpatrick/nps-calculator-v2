@@ -24,13 +24,13 @@ function App() {
     return Math.round((numConv + Number.EPSILON) * 100) / 100;
   };
 
-  //function to remove commas from the amount state and convert to float
+  //function to remove commas from the 'amount state' and convert to a float
   const convertAmount = (a) => {
     const removeC = a.replaceAll(",", "");
     return parseFloat(removeC);
   };
 
-  //effect
+  //main function which calcualtes nps if conditions are met
   useEffect(() => {
     const reducer = (accumulator, curr) => accumulator + curr;
     const shareArr = clientObject.map((i) => i.pubShare);
@@ -41,7 +41,7 @@ function App() {
       (i) => i.syncRate !== 0 && i.syncRate > 0 && i.syncRate <= 1
     );
 
-    // calcualte nps
+    // calcualte nps only if the amount has been entered, shares total 100% and rates are valid
     if (amount === "" || shareTotal !== 1 || !rateCheck) {
       setNpsResult("");
     } else {
@@ -53,7 +53,7 @@ function App() {
       const npsRounded = rounded(nps);
       setNpsResult(npsRounded);
     }
-  }, [amount, clientObject, npsResult]);
+  }, [amount, clientObject]);
 
   return (
     <div>

@@ -1,11 +1,8 @@
 import React from "react";
 
-export function RemoveClientBtn({
-  clientObject,
-  setClientObject,
+//rendered within the 'Client' component, and removes client from the clientObject state array when clicked
 
-  id,
-}) {
+export function RemoveClientBtn({ clientObject, setClientObject, id }) {
   const onClickHandler = (e) => {
     e.preventDefault();
     const componentId = parseFloat(e.target.id);

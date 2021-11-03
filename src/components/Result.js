@@ -1,5 +1,7 @@
 import React from "react";
 
+//renders each client name, the rate (i.e. 'working out') and the NPS
+
 export function Result({
   npsResult,
   clientObject,

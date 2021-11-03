@@ -1,5 +1,7 @@
 import React from "react";
 
+//adds and additional client object to the clientObject state
+
 export function AddClientBtn({ clientObject, setClientObject }) {
   const onClickHandler = (e) => {
     e.preventDefault();
