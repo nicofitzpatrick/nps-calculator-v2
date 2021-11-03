@@ -11,8 +11,10 @@ export function ResetBtn({ setAmount, setClientObject, setNpsResult }) {
     setNpsResult("");
   };
   return (
-    <div>
-      <button onClick={handleReset}>Reset</button>
+    <div className="center">
+      <button onClick={handleReset} className="btn">
+        Reset
+      </button>
     </div>
   );
 }

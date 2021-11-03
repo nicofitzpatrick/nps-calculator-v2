@@ -12,7 +12,7 @@ export function Result({
   const convertedAmount = amount === "" ? 0 : convertAmount(amount);
 
   return (
-    <div className="border marginBotton comp">
+    <div className="result">
       <p>
         Client(s):{" "}
         {clientObject.map((i) => {

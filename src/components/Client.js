@@ -32,7 +32,16 @@ export function Client({ clientObject, setClientObject, id }) {
 
   return (
     <div className="client">
-      <div className="flexGroup ">
+      {clientObject.length === 1 ? (
+        ""
+      ) : (
+        <RemoveClientBtn
+          clientObject={clientObject}
+          setClientObject={setClientObject}
+          id={id}
+        />
+      )}
+      <div className="flexGroup spaceBottom">
         <p> Client Name: </p>{" "}
         <input
           onChange={nameHandler}
@@ -40,15 +49,6 @@ export function Client({ clientObject, setClientObject, id }) {
           id={id}
           className="input longInput"
         />
-        {clientObject.length === 1 ? (
-          ""
-        ) : (
-          <RemoveClientBtn
-            clientObject={clientObject}
-            setClientObject={setClientObject}
-            id={id}
-          />
-        )}
       </div>{" "}
       <div className="flexGroup">
         <div className="flexGroup">

@@ -57,24 +57,20 @@ function App() {
 
   return (
     <div>
-      <h1>NPS Calculator</h1>
+      <div className="center">
+        <h1 className="title">NPS Calculator</h1>
+      </div>
+
       <Amount amount={amount} setAmount={setAmount} />
       <ClientList
         clientObject={clientObject}
         setClientObject={setClientObject}
       />
 
-      <div className="btns">
-        <AddClientBtn
-          clientObject={clientObject}
-          setClientObject={setClientObject}
-        />
-        <ResetBtn
-          setAmount={setAmount}
-          setClientObject={setClientObject}
-          setNpsResult={setNpsResult}
-        />
-      </div>
+      <AddClientBtn
+        clientObject={clientObject}
+        setClientObject={setClientObject}
+      />
 
       <Result
         npsResult={npsResult}
@@ -82,6 +78,11 @@ function App() {
         amount={amount}
         rounded={rounded}
         convertAmount={convertAmount}
+      />
+      <ResetBtn
+        setAmount={setAmount}
+        setClientObject={setClientObject}
+        setNpsResult={setNpsResult}
       />
     </div>
   );
