@@ -1,12 +1,7 @@
 import React from "react";
 
-export function AddClientBtn({
-  clientObject,
-  setClientObject,
-  setErrorMessage,
-}) {
+export function AddClientBtn({ clientObject, setClientObject }) {
   const onClickHandler = (e) => {
-    setErrorMessage("");
     e.preventDefault();
     setClientObject([
       ...clientObject,

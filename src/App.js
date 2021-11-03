@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
-// Styles
+//Styles
 import "./App.css";
 
-//Import Components
+//Components
 import { Amount } from "./components/Amount";
 import { ClientList } from "./components/ClientList";
 import { Result } from "./components/Result";
@@ -17,7 +17,6 @@ function App() {
   ]);
   const [amount, setAmount] = useState("");
   const [npsResult, setNpsResult] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   //function to convert stringed numbers to floats and round to 2dp
   const rounded = (num) => {
@@ -52,7 +51,6 @@ function App() {
       );
       const nps = npsArray.reduce(reducer);
       const npsRounded = rounded(nps);
-      setErrorMessage("");
       setNpsResult(npsRounded);
     }
   }, [amount, clientObject, npsResult]);
@@ -70,13 +68,11 @@ function App() {
         <AddClientBtn
           clientObject={clientObject}
           setClientObject={setClientObject}
-          setErrorMessage={setErrorMessage}
         />
         <ResetBtn
           setAmount={setAmount}
           setClientObject={setClientObject}
           setNpsResult={setNpsResult}
-          setErrorMessage={setErrorMessage}
         />
       </div>
 
@@ -87,8 +83,6 @@ function App() {
         rounded={rounded}
         convertAmount={convertAmount}
       />
-
-      <p>{errorMessage}</p>
     </div>
   );
 }
