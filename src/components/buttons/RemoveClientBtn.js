@@ -11,10 +11,8 @@ export function RemoveClientBtn({ clientObject, setClientObject, id }) {
   };
 
   return (
-    <div>
-      <span onClick={onClickHandler} id={id} className="close">
-        &times;
-      </span>
-    </div>
+    <span onClick={onClickHandler} id={id} className="close">
+      &times;
+    </span>
   );
 }

@@ -13,12 +13,13 @@ export function Amount({ amount, setAmount }) {
   };
 
   return (
-    <div className="flexGroup border marginBotton comp">
-      <p> Enter Amount: $</p>{" "}
+    <div className="amount">
+      <p> Amount: $ </p>{" "}
       <input
         onChange={amountHandler}
         type="text"
         value={amount ? amount : ""}
+        className="input mediumInput"
       />
     </div>
   );

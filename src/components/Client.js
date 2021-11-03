@@ -31,10 +31,15 @@ export function Client({ clientObject, setClientObject, id }) {
   };
 
   return (
-    <div className="border marginBotton comp">
-      <div className="flexGroup">
+    <div className="client">
+      <div className="flexGroup ">
         <p> Client Name: </p>{" "}
-        <input onChange={nameHandler} type="text" id={id} />
+        <input
+          onChange={nameHandler}
+          type="text"
+          id={id}
+          className="input longInput"
+        />
         {clientObject.length === 1 ? (
           ""
         ) : (
@@ -50,7 +55,7 @@ export function Client({ clientObject, setClientObject, id }) {
           <p> Share: </p>{" "}
           <input
             onChange={pubShareHandler}
-            className="smallerInputBox"
+            className="input shortInput"
             type="number"
           />
           <p> % </p>{" "}
@@ -59,7 +64,7 @@ export function Client({ clientObject, setClientObject, id }) {
           <p className="leftMargin"> Sync Rate: </p>{" "}
           <input
             onChange={syncRateHandler}
-            className="smallerInputBox"
+            className="input shortInput"
             type="number"
           />
           <p> % </p>{" "}
