@@ -20,17 +20,21 @@
 body {
   font-family: var(--codeFont);
   color: var(--green);
+  /* background-color: black; */
 }
 
 .title {
-  margin-left: 1rem;
+  margin: 0.5rem 0 0 1rem;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: var(--blue);
 }
 
 .amount {
   display: flex;
   /* border: 1px solid blue; */
   /* border-style: dashed; */
-  margin: 1rem 0 1rem 1rem;
+  margin: 2rem 0 1rem 1rem;
   padding: 0 0 0 0.5rem;
 
   width: 300px;
@@ -45,10 +49,21 @@ body {
 }
 
 .result {
-  border: 1px solid blue;
+  border: 2px solid var(--green);
+  border-style: dashed;
   margin: 0 0 1rem 1rem;
   padding: 1rem 0 1rem 0.5rem;
   width: 400px;
+  color: black;
+}
+
+.npsResult {
+  color: blue;
+}
+
+.resultTitle {
+  margin: 0 0 0.5rem 1rem;
+  padding: 0 0 0 0.5rem;
 }
 
 /* inputs */
@@ -90,7 +105,7 @@ body {
 }
 
 .leftMargin {
-  margin-left: 1rem;
+  margin-left: 1.5rem;
 }
 
 /* .marginBotton {
@@ -104,10 +119,11 @@ body {
 /* buttons */
 
 .btn {
-  background-color: var(--purple);
+  color: var(--purple);
+  background: pink;
   border: none;
   outline: none;
-  color: white;
+
   padding: 8px 8px;
   /* text-align: center; */
   text-decoration: none;
@@ -117,8 +133,8 @@ body {
 }
 
 .btn:hover {
-  color: var(--purple);
-  background: pink;
+  background-color: var(--purple);
+  color: white;
 }
 
 .center {
@@ -148,7 +164,7 @@ ul {
   margin: 0;
   left: 375px;
   bottom: 55px;
-  color: black;
+  color: red;
   font-size: 35px;
   font-weight: lighter;
   cursor: pointer;

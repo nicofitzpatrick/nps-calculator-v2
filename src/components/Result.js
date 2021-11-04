@@ -37,7 +37,9 @@ export function Result({
           }
         })}{" "}
       </p>
-      <p>NPS = {typeof npsResult === "string" ? npsResult : `$${npsResult}`}</p>
+      <p className="npsResult">
+        NPS = {typeof npsResult === "string" ? npsResult : `$${npsResult}`}
+      </p>
     </div>
   );
 }

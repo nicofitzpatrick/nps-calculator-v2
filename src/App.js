@@ -71,7 +71,7 @@ function App() {
         clientObject={clientObject}
         setClientObject={setClientObject}
       />
-
+      <p className="resultTitle">Result:</p>
       <Result
         npsResult={npsResult}
         clientObject={clientObject}
