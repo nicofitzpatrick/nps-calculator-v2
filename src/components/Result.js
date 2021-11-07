@@ -11,8 +11,12 @@ export function Result({
 }) {
   const convertedAmount = amount === "" ? 0 : convertAmount(amount);
 
+  const handleResultCopy = (e) => {
+    console.log(e.target.outerText);
+  };
+
   return (
-    <div className="result">
+    <div onClick={handleResultCopy} className="result">
       <p>
         Client(s):{" "}
         {clientObject.map((i) => {
