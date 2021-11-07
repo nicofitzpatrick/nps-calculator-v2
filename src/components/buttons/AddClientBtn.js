@@ -13,7 +13,7 @@ export function AddClientBtn({ clientObject, setClientObject }) {
 
   return (
     <div className="center">
-      <button onClick={onClickHandler} className="btn">
+      <button onClick={onClickHandler} className="btn btnClient">
         Add Client
       </button>
     </div>

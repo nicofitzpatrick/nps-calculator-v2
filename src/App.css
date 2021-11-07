@@ -7,6 +7,10 @@
   --blue: blue;
   --red: red;
   --purple: #350a85;
+  --color2: rgb(12, 54, 30);
+  --color3: rgb(223, 247, 233);
+  --color4: rgb(12, 2, 1);
+  --color5: rgb(241, 165, 159);
   /* font */
   --codeFont: "Source Code Pro", monospace;
 }
@@ -21,6 +25,10 @@ body {
   font-family: var(--codeFont);
   color: var(--green);
   /* background-color: black; */
+}
+
+.darkMode {
+  background-color: black;
 }
 
 .title {
@@ -41,7 +49,7 @@ body {
 }
 
 .client {
-  border: 1px solid blue;
+  border: 2px solid blue;
   margin: 0 0 1rem 1rem;
   padding: 1rem 0 1rem 0.5rem;
   position: relative;
@@ -119,8 +127,6 @@ body {
 /* buttons */
 
 .btn {
-  color: var(--purple);
-  background: pink;
   border: none;
   outline: none;
 
@@ -132,8 +138,24 @@ body {
   font-family: var(--codeFont);
 }
 
-.btn:hover {
-  background-color: var(--purple);
+.btnClient {
+  color: var(--color2);
+  background: var(--color3);
+}
+
+.btnClient:hover {
+  background-color: var(--color2);
+  color: var(--color3);
+}
+
+.btnReset {
+  color: var(--red);
+  background: white;
+  border: 1px solid red;
+}
+
+.btnReset:hover {
+  background-color: red;
   color: white;
 }
 
@@ -164,7 +186,7 @@ ul {
   margin: 0;
   left: 375px;
   bottom: 55px;
-  color: red;
+  color: black;
   font-size: 35px;
   font-weight: lighter;
   cursor: pointer;
