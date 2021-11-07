@@ -37,7 +37,7 @@ export function Result({
           }
         })}{" "}
       </p>
-      <p className="npsResult">
+      <p className={npsResult !== "" ? "npsResult" : ""}>
         NPS = {typeof npsResult === "string" ? npsResult : `$${npsResult}`}
       </p>
     </div>

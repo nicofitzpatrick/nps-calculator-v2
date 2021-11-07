@@ -17,6 +17,9 @@ function App() {
   ]);
   const [amount, setAmount] = useState("");
   const [npsResult, setNpsResult] = useState("");
+  // const [npsColor, setNpsColor] = useState({
+  //   color: black;
+  // })
 
   //function to convert stringed numbers to floats and round to 2dp
   const rounded = (num) => {
