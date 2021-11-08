@@ -52,7 +52,8 @@ function App() {
       );
       const nps = npsArray.reduce(reducer);
       const npsRounded = rounded(nps);
-      setNpsResult(npsRounded);
+      const npsToLocaleString = npsRounded.toLocaleString();
+      setNpsResult(npsToLocaleString);
     }
   }, [amount, clientObject]);
 

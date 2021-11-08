@@ -33,13 +33,13 @@ export function Result({
     // add rate workings to new array
     const rateArray = clientObject.map((i) => {
       if (clientObject.indexOf(i) === 0) {
-        return `($${rounded(convertedAmount * i.pubShare)} less ${rounded(
-          i.syncRate * 100
-        )}%)`;
+        return `($${rounded(
+          convertedAmount * i.pubShare
+        ).toLocaleString()} less ${rounded(i.syncRate * 100)}%)`;
       } else {
-        return ` + ($${rounded(convertedAmount * i.pubShare)} less ${rounded(
-          i.syncRate * 100
-        )}%)`;
+        return ` + ($${rounded(
+          convertedAmount * i.pubShare
+        ).toLocaleString()} less ${rounded(i.syncRate * 100)}%)`;
       }
     });
     //convert both arrays to strings
@@ -67,18 +67,18 @@ export function Result({
         Rate:{" "}
         {clientObject.map((i) => {
           if (clientObject.indexOf(i) === 0) {
-            return `($${rounded(convertedAmount * i.pubShare)} less ${rounded(
-              i.syncRate * 100
-            )}%)`;
+            return `($${rounded(
+              convertedAmount * i.pubShare
+            ).toLocaleString()} less ${rounded(i.syncRate * 100)}%)`;
           } else {
             return ` + ($${rounded(
               convertedAmount * i.pubShare
-            )} less ${rounded(i.syncRate * 100)}%)`;
+            ).toLocaleString()} less ${rounded(i.syncRate * 100)}%)`;
           }
         })}{" "}
       </p>
       <p className={npsResult !== "" ? "npsResult" : ""}>
-        NPS = {typeof npsResult === "string" ? npsResult : `$${npsResult}`}
+        NPS = {npsResult === "" ? npsResult : `$${npsResult}`}
       </p>
       <img
         src={clipboard}
