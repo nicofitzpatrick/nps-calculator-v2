@@ -9,15 +9,50 @@ export function Result({
   amount,
   rounded,
   convertAmount,
+  copyFade,
+  setCopyFade,
 }) {
+  //props
   const convertedAmount = amount === "" ? 0 : convertAmount(amount);
 
-  const handleResultCopy = (e) => {
-    console.log(e.target.outerText);
+  const handleResultCopy = () => {
+    //sets state to fade out copied text
+    setCopyFade("copiedFade");
+    //resets copyFade state
+    setTimeout(() => {
+      setCopyFade("");
+    }, 2000);
+    // add client names to new array
+    const clientArray = clientObject.map((i) => {
+      if (clientObject.indexOf(i) === 0) {
+        return i.name;
+      } else {
+        return ` / ${i.name}`;
+      }
+    });
+    // add rate workings to new array
+    const rateArray = clientObject.map((i) => {
+      if (clientObject.indexOf(i) === 0) {
+        return `($${rounded(convertedAmount * i.pubShare)} less ${rounded(
+          i.syncRate * 100
+        )}%)`;
+      } else {
+        return ` + ($${rounded(convertedAmount * i.pubShare)} less ${rounded(
+          i.syncRate * 100
+        )}%)`;
+      }
+    });
+    //convert both arrays to strings
+    const clientString = clientArray.join("");
+    const rateString = rateArray.join("");
+    //copy result to clipboard
+    return navigator.clipboard.writeText(
+      `Client(s): ${clientString}\nRate: ${rateString}\nNPS = ${npsResult}`
+    );
   };
 
   return (
-    <div onClick={handleResultCopy} className="result">
+    <div className="result">
       <p>
         Client(s):{" "}
         {clientObject.map((i) => {
@@ -45,7 +80,13 @@ export function Result({
       <p className={npsResult !== "" ? "npsResult" : ""}>
         NPS = {typeof npsResult === "string" ? npsResult : `$${npsResult}`}
       </p>
-      <img src={clipboard} alt="Clipboard" className="clip" />
+      <img
+        src={clipboard}
+        alt="Clipboard"
+        className="clip"
+        onClick={handleResultCopy}
+      />
+      <p className={`copied ${copyFade}`}>copied</p>
     </div>
   );
 }

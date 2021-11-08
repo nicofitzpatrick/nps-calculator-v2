@@ -17,9 +17,7 @@ function App() {
   ]);
   const [amount, setAmount] = useState("");
   const [npsResult, setNpsResult] = useState("");
-  // const [npsColor, setNpsColor] = useState({
-  //   color: black;
-  // })
+  const [copyFade, setCopyFade] = useState("");
 
   //function to convert stringed numbers to floats and round to 2dp
   const rounded = (num) => {
@@ -81,6 +79,8 @@ function App() {
         amount={amount}
         rounded={rounded}
         convertAmount={convertAmount}
+        copyFade={copyFade}
+        setCopyFade={setCopyFade}
       />
       <ResetBtn
         setAmount={setAmount}
