@@ -12,6 +12,7 @@ export function Result({
   const convertedAmount = amount === "" ? 0 : convertAmount(amount);
 
   const handleResultCopy = (e) => {
+    console.log(e.target);
     console.log(e.target.outerText);
   };
 
