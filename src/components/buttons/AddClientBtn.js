@@ -7,7 +7,7 @@ export function AddClientBtn({ clientObject, setClientObject }) {
     e.preventDefault();
     setClientObject([
       ...clientObject,
-      { name: "", pubShare: 0, syncRate: 0, id: Math.random() * 1000 },
+      { name: "", pubShare: 0, syncRate: 0, id: new Date().valueOf() },
     ]);
   };
 

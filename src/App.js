@@ -13,7 +13,7 @@ import { AddClientBtn } from "./components/buttons/AddClientBtn";
 function App() {
   //state
   const [clientObject, setClientObject] = useState([
-    { name: "", pubShare: 0, syncRate: 0, id: Math.random() * 1000 },
+    { name: "", pubShare: 0, syncRate: 0, id: new Date().valueOf() },
   ]);
   const [amount, setAmount] = useState("");
   const [npsResult, setNpsResult] = useState("");

@@ -21,7 +21,7 @@ export function Result({
     //resets copyFade state
     setTimeout(() => {
       setCopyFade("");
-    }, 2000);
+    }, 1500);
     // add client names to new array
     const clientArray = clientObject.map((i) => {
       if (clientObject.indexOf(i) === 0) {

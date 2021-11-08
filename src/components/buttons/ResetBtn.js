@@ -6,7 +6,7 @@ export function ResetBtn({ setAmount, setClientObject, setNpsResult }) {
   const handleReset = () => {
     setAmount("");
     setClientObject([
-      { name: "", pubShare: 0, syncRate: 0, id: Math.random() * 1000 },
+      { name: "", pubShare: 0, syncRate: 0, id: new Date().valueOf() },
     ]);
     setNpsResult("");
   };
