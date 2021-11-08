@@ -190,7 +190,7 @@ ul {
   font-size: 33px;
   font-weight: lighter;
   cursor: pointer;
-  opacity: 75%;
+  opacity: 100%;
 }
 
 .close:hover {
