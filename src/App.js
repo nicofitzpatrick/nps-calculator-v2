@@ -58,13 +58,14 @@ function App() {
     }
   }, [amount, clientObject]);
 
+  //function to switch theme to dark mode
   const handleDarkMode = () => {
     if (darkMode) {
       document.body.style.backgroundColor = "white";
       document.querySelector(".result").style.color = "black";
       setDarkMode(false);
     } else {
-      document.body.style.backgroundColor = "black";
+      document.body.style.backgroundColor = "#101010";
       document.querySelector(".result").style.color = "white";
       setDarkMode(true);
     }
