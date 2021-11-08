@@ -1,4 +1,5 @@
 import React from "react";
+import clipboard from "../clipboard.svg";
 
 //renders each client name, the rate (i.e. 'working out') and the NPS
 
@@ -44,6 +45,7 @@ export function Result({
       <p className={npsResult !== "" ? "npsResult" : ""}>
         NPS = {typeof npsResult === "string" ? npsResult : `$${npsResult}`}
       </p>
+      <img src={clipboard} alt="Clipboard" className="clip" />
     </div>
   );
 }
