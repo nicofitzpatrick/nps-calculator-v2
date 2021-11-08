@@ -18,6 +18,7 @@ function App() {
   const [amount, setAmount] = useState("");
   const [npsResult, setNpsResult] = useState("");
   const [copyFade, setCopyFade] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
 
   //function to convert stringed numbers to floats and round to 2dp
   const rounded = (num) => {
@@ -57,10 +58,24 @@ function App() {
     }
   }, [amount, clientObject]);
 
+  const handleDarkMode = () => {
+    if (darkMode) {
+      document.body.style.backgroundColor = "white";
+      document.querySelector(".result").style.color = "black";
+      setDarkMode(false);
+    } else {
+      document.body.style.backgroundColor = "black";
+      document.querySelector(".result").style.color = "white";
+      setDarkMode(true);
+    }
+  };
+
   return (
     <div>
       <div className="center">
-        <h1 className="title">NPS Calculator</h1>
+        <h1 onClick={handleDarkMode} className="title">
+          NPS Calculator
+        </h1>
       </div>
 
       <Amount amount={amount} setAmount={setAmount} />
@@ -82,6 +97,7 @@ function App() {
         convertAmount={convertAmount}
         copyFade={copyFade}
         setCopyFade={setCopyFade}
+        darkMode={darkMode}
       />
       <ResetBtn
         setAmount={setAmount}

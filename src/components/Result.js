@@ -1,5 +1,6 @@
 import React from "react";
 import clipboard from "../clipboard.svg";
+import clipboardDark from "../clipboardDark.svg";
 
 //renders each client name, the rate (i.e. 'working out') and the NPS
 
@@ -11,6 +12,7 @@ export function Result({
   convertAmount,
   copyFade,
   setCopyFade,
+  darkMode,
 }) {
   //props
   const convertedAmount = amount === "" ? 0 : convertAmount(amount);
@@ -81,7 +83,7 @@ export function Result({
         NPS = {npsResult === "" ? npsResult : `$${npsResult}`}
       </p>
       <img
-        src={clipboard}
+        src={darkMode ? clipboardDark : clipboard}
         alt="Clipboard"
         className="clip"
         onClick={handleResultCopy}

@@ -24,7 +24,7 @@
 body {
   font-family: var(--codeFont);
   color: var(--green);
-  /* background-color: black; */
+  background-color: white;
 }
 
 .darkMode {
@@ -185,14 +185,16 @@ ul {
   padding: 0;
   margin: 0;
   left: 375px;
-  bottom: 59px;
+  bottom: 60px;
   color: black;
-  font-size: 35px;
+  font-size: 33px;
   font-weight: lighter;
   cursor: pointer;
+  opacity: 75%;
 }
 
 .close:hover {
+  opacity: 100%;
   color: red;
 }
 
