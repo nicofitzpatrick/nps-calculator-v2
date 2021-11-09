@@ -190,7 +190,7 @@ ul {
   font-size: 33px;
   font-weight: lighter;
   cursor: pointer;
-  opacity: 100%;
+  opacity: 0.75;
 }
 
 .close:hover {
@@ -203,7 +203,7 @@ ul {
   position: absolute;
   left: 365px;
   bottom: 5px;
-  opacity: 20%;
+  opacity: 0.2;
 }
 
 .clip:hover {
