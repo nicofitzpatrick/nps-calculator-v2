@@ -193,7 +193,7 @@ ul {
   opacity: 0.75;
 }
 
-.close:hover {
+span:hover {
   opacity: 0.9;
   color: red;
 }
@@ -206,7 +206,7 @@ ul {
   opacity: 0.2;
 }
 
-.clip:hover {
+img:hover {
   opacity: 0.9;
 }
 
