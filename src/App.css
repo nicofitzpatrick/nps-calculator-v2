@@ -193,8 +193,7 @@ ul {
   opacity: 0.75;
 }
 
-span:hover {
-  opacity: 0.9;
+.close:hover {
   color: red;
 }
 
