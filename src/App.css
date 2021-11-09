@@ -194,7 +194,7 @@ ul {
 }
 
 .close:hover {
-  opacity: 100%;
+  opacity: 1;
   color: red;
 }
 
@@ -207,7 +207,7 @@ ul {
 }
 
 .clip:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .copied {
@@ -215,11 +215,11 @@ ul {
   position: absolute;
   left: 410px;
   bottom: 12px;
-  opacity: 0%;
+  opacity: 0;
 }
 
 .copiedFade {
-  opacity: 100%;
+  opacity: 1;
   animation: fadeOut ease 2s;
   animation-fill-mode: forwards;
 }
