@@ -194,7 +194,7 @@ ul {
 }
 
 .close:hover {
-  opacity: 0.99;
+  opacity: 0.9;
   color: red;
 }
 
@@ -207,7 +207,7 @@ ul {
 }
 
 .clip:hover {
-  opacity: 0.99;
+  opacity: 0.9;
 }
 
 .copied {

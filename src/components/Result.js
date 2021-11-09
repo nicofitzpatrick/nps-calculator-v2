@@ -49,7 +49,7 @@ export function Result({
     const rateString = rateArray.join("");
     //copy result to clipboard
     return navigator.clipboard.writeText(
-      `Client(s): ${clientString}\nRate: ${rateString}\nNPS = ${npsResult}`
+      `Client(s): ${clientString}\nRate: ${rateString}\nNPS = $${npsResult}`
     );
   };
 
