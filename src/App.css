@@ -195,6 +195,7 @@ ul {
 
 .close:hover {
   color: red;
+  opacity: 1;
 }
 
 .clip {
@@ -205,7 +206,7 @@ ul {
   opacity: 0.2;
 }
 
-img:hover {
+.clip:hover {
   opacity: 0.9;
 }
 

@@ -75,7 +75,7 @@ function App() {
     <div>
       <div className="center">
         <h1 onClick={handleDarkMode} className="title">
-          NPA Calculator
+          NPS Calculator
         </h1>
       </div>
 
