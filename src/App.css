@@ -237,3 +237,18 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+@media screen and (max-width: 450px) {
+  .client {
+    width: 345px;
+  }
+  .result {
+    width: 345px;
+  }
+  .center {
+    width: 345px;
+  }
+  .longInput {
+    width: 200px;
+  }
+}
